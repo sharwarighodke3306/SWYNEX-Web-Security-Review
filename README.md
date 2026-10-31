@@ -8,38 +8,51 @@ This project documents a practical web security review conducted as part of the 
 
 The assessment was performed using **DVWA (Damn Vulnerable Web Application)**, an intentionally vulnerable web application deployed locally through Docker.
 
-The objective was to explore common web application security vulnerabilities, observe application behaviour, collect testing evidence, understand potential security risks, and identify suitable remediation techniques.
+The objective was to explore common web application security vulnerabilities, observe application behaviour, collect testing evidence, understand potential security risks, and identify appropriate remediation techniques.
 
 All practical exercises were conducted in a controlled local environment.
 
 ## 2. Objectives
 
 - Understand common web application vulnerabilities.
-- Perform basic security testing using DVWA.
+- Perform practical security testing using DVWA.
 - Observe application responses to different test inputs.
 - Capture and organise testing evidence.
 - Understand potential security impacts.
 - Identify appropriate security controls and remediation techniques.
+- Document practical observations in a structured security assessment report.
 
 ## 3. Tools and Environment
 
 | Component | Details |
 |---|---|
-| Testing Application | DVWA |
+| Testing Application | DVWA (Damn Vulnerable Web Application) |
 | Deployment | Docker |
 | Database | MySQL |
 | Testing Environment | Localhost |
 | Browser | Web Browser |
 | Documentation | GitHub |
-| Classification Reference | CWE |
+| Classification Reference | Common Weakness Enumeration (CWE) |
 
 **Application:** Damn Vulnerable Web Application (DVWA)  
 **Local URL:** `http://localhost:4280`  
 **Security Level:** Low
 
-## 4. Vulnerabilities Tested
+## 4. Testing Methodology
 
-The following vulnerability areas were explored during the practical assessment.
+The assessment followed a structured practical testing approach:
+
+1. Set up the DVWA application locally using Docker.
+2. Accessed the application through a web browser.
+3. Explored the available vulnerability modules.
+4. Performed basic tests within the controlled environment.
+5. Observed application responses and behaviour.
+6. Captured screenshots as supporting evidence.
+7. Documented observations, potential risks, and recommended remediation.
+
+## 5. Vulnerabilities Tested
+
+The following eight vulnerability areas were explored during the assessment.
 
 | ID | Vulnerability | CWE | Testing Status |
 |---|---|---|---|
@@ -50,25 +63,31 @@ The following vulnerability areas were explored during the practical assessment.
 | F-05 | Cross-Site Request Forgery (CSRF) | CWE-352 | Tested |
 | F-06 | File Upload | CWE-434 | Upload and harmless PHP execution observed |
 | F-07 | Brute Force – Login Behaviour | CWE-307 | Successful and unsuccessful login attempts tested |
-| F-08 | File Inclusion | CWE-98 | Page inclusion observed; arbitrary file inclusion not confirmed |
+| F-08 | File Inclusion | CWE-98 (potential mapping) | Page inclusion observed; arbitrary file inclusion not confirmed |
 
-*Note: Testing status describes the practical observations made during the exercises. It does not imply that every possible attack condition or security control was independently verified.*
+**Testing limitations:**
 
-## 5. Key Learning Outcomes
+- The Brute Force exercise demonstrated successful and unsuccessful login behaviour but did not establish whether rate limiting was absent.
+- The File Upload exercise confirmed the upload and execution of a harmless PHP test file. Other upload restrictions were not comprehensively assessed.
+- The File Inclusion exercise demonstrated page selection and inclusion, but arbitrary local file inclusion was not confirmed.
+- Testing status reflects the observations made during the exercises and does not imply that every possible attack condition was verified.
 
-Through this assessment, the following concepts were explored:
+## 6. Key Learning Outcomes
+
+The practical exercises provided exposure to the following concepts:
 
 - SQL query security and input handling.
-- Reflected and stored XSS risks.
+- Reflected and stored XSS vulnerabilities.
 - Secure file upload practices.
 - Authentication security and login protection.
 - Operating system command handling.
 - CSRF protection mechanisms.
 - File inclusion and path validation.
 - Security evidence collection and documentation.
-- Identifying appropriate mitigation techniques.
+- Vulnerability impact assessment.
+- Security remediation and defensive practices.
 
-## 6. Repository Structure
+## 7. Repository Structure
 
 ```text
 SWYNEX-Web-Security-Review/
@@ -88,34 +107,36 @@ SWYNEX-Web-Security-Review/
     └── File-Inclusion/
 ```
 
-*The directory structure represents the intended organisation of project evidence.*
+*The screenshot directory structure represents the planned organisation of supporting evidence. Actual folders and files should be added before final submission.*
 
-## 7. Detailed Security Assessment Report
+## 8. Detailed Security Assessment Report
 
-The detailed report includes:
+The detailed security assessment report provides further information about the practical exercises, including:
 
 - Vulnerability descriptions.
-- Practical testing observations.
+- Testing observations.
 - Potential security impacts.
 - Recommended remediation measures.
-- Evidence references and testing limitations.
+- Evidence references.
+- Testing limitations.
 
-**[View Detailed Security Report](./security-report.md)**
+**[View Detailed Security Assessment Report](./security-report.md)**
 
-## 8. Scope and Disclaimer
+## 9. Scope and Disclaimer
 
 - All testing was performed on a locally hosted DVWA training application.
 - No third-party websites, networks, or systems were targeted.
 - The exercises were conducted for educational and defensive cybersecurity learning.
-- Findings are limited to the behaviours observed during the assessment.
+- The assessment was limited to the selected DVWA modules and observed application behaviour.
+- The documented observations should not be interpreted as a comprehensive security audit.
 
-## 9. Conclusion
+## 10. Conclusion
 
-This project provided practical exposure to common web application security testing concepts.
+This project provided practical exposure to common web application security testing concepts through DVWA.
 
-Working with DVWA helped develop an understanding of how insecure input handling, authentication weaknesses, file processing, and request validation can affect application security.
+Working with the application helped develop an understanding of how insecure input handling, authentication weaknesses, file processing, and request validation can affect web application security.
 
-The assessment also highlighted the importance of collecting reliable evidence, interpreting test results accurately, and recommending suitable remediation measures.
+The assessment also highlighted the importance of collecting reliable evidence, interpreting testing results accurately, understanding security limitations, and recommending appropriate remediation measures.
 
 ---
 
